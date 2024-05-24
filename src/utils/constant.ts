@@ -1,0 +1,1 @@
+export const TIMEOUT_INTERCEPTOR = 10000;

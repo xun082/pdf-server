@@ -1,0 +1,5 @@
+/* eslint-disable */
+export default async () => {
+    const t = {};
+    return { "@nestjs/swagger": { "models": [[import("./api/login/dto/create-login.dto"), { "LoginDto": { username: { required: true, type: () => String }, password: { required: true, type: () => String, minLength: 6 }, key: { required: true, type: () => String }, captcha: { required: true, type: () => String } } }], [import("./api/moment/dto/create-moment.dto"), { "CreateMomentDto": {} }], [import("./api/moment/dto/update-moment.dto"), { "UpdateMomentDto": {} }]], "controllers": [[import("./api/moment/moment.controller"), { "MomentController": { "create": { type: Object } } }], [import("./api/files/files.controller"), { "FilesController": { "uploadSingle": {}, "getPresignedPutUrl": { type: String }, "getPresignedGetUrl": { type: String }, "getPresignedPostPolicy": { type: Object } } }], [import("./api/login/login.controller"), { "LoginController": { "create": { type: Object }, "generateCaptcha": {} } }]] } };
+};
