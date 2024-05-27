@@ -17,6 +17,8 @@ export class EmailService {
   ) {
     this.emailConfig = loadEmailConfig(this.configService);
 
+    console.log(this.emailConfig);
+
     this.transporter = nodemailer.createTransport({
       host: this.emailConfig.host,
       port: this.emailConfig.port,

@@ -17,9 +17,6 @@ export class User {
   @Prop()
   root_folder_id: string;
 
-  @Prop()
-  id: string;
-
   @Prop({ default: '1c902bf0-df6b-447f-bb9c-a257b014b1f5' })
   avatar: string;
 
@@ -27,5 +24,5 @@ export class User {
   createdAt: string;
 }
 
-export const usersSchema = SchemaFactory.createForClass(User);
+export const UsersSchema = SchemaFactory.createForClass(User);
 export type UsersDocument = HydratedDocument<User>;

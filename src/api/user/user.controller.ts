@@ -11,6 +11,6 @@ export class UserController {
 
   @ApiOperation({ summary: '获取用户信息' })
   getUserInfo(@Request() req: RequestWithUser) {
-    return this.userService.getUserInfo(req.user.id);
+    return this.userService.getUserInfo(req.user.username);
   }
 }
