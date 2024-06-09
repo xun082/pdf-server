@@ -2,7 +2,7 @@ import { Module } from '@nestjs/common';
 import { JwtModule } from '@nestjs/jwt';
 import { MongooseModule } from '@nestjs/mongoose';
 
-import { User, UsersSchema } from '../user/schema/user.schema';
+import { User, UserSchema } from '../user/schema/user.schema';
 
 import { AuthService } from './auth.service';
 import { AuthController } from './auth.controller';
@@ -17,7 +17,7 @@ import { EmailModule } from '@/common/email/email.module';
   providers: [AuthService, JwtStrategy],
   imports: [
     MongooseModule.forFeature([
-      { name: User.name, schema: UsersSchema, collection: 'users' }
+      { name: User.name, schema: UserSchema, collection: 'user' }
     ]),
     JwtModule.registerAsync({
       useFactory: async () => ({
@@ -30,6 +30,7 @@ import { EmailModule } from '@/common/email/email.module';
     }),
     RedisModule,
     EmailModule
-  ]
+  ],
+  exports: [AuthService]
 })
 export class AuthModule {}

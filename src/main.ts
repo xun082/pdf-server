@@ -19,8 +19,6 @@ async function bootstrap() {
     }
   );
 
-  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-  // @ts-expect-error
   await app.register(fastifyMultipart);
 
   app.enableCors({

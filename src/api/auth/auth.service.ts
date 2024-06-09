@@ -1,4 +1,5 @@
 import { Injectable } from '@nestjs/common';
+import { JwtService } from '@nestjs/jwt';
 
 import { SendVerificationCodeDto } from './dto/auto.dto';
 
@@ -10,10 +11,11 @@ import { ResponseDto } from '@/common/dto/response.dto';
 export class AuthService {
   constructor(
     private readonly redisService: RedisService,
-    private readonly emailService: EmailService
+    private readonly emailService: EmailService,
+    private jwt: JwtService
   ) {}
   private generateVerificationCode(): string {
-    return Math.floor(100000 + Math.random() * 900000).toString();
+    return String(Math.floor(100000 + Math.random() * 900000));
   }
 
   async sendVerificationCode(
@@ -30,5 +32,13 @@ export class AuthService {
     return {
       data
     };
+  }
+
+  login(account: string) {
+    const access_token: string = this.jwt.sign({
+      sub: account
+    });
+
+    return { access_token };
   }
 }

@@ -1,5 +1,5 @@
 {
-  "name": "pdf",
+  "name": "pdf-ai-server",
   "version": "0.0.1",
   "description": "",
   "author": "",
@@ -65,7 +65,7 @@
     "@swc/core": "^1.3.102",
     "@types/fastify-multipart": "^0.7.0",
     "@types/jest": "^29.5.2",
-    "@types/node": "^20.3.1",
+    "@types/node": "^20.14.2",
     "@types/nodemailer": "^6.4.14",
     "@types/supertest": "^2.0.12",
     "@types/uuid": "^9.0.8",

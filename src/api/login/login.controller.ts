@@ -2,23 +2,23 @@ import { Controller, Get, Post, Body } from '@nestjs/common';
 import { ApiBody, ApiOperation, ApiResponse, ApiTags } from '@nestjs/swagger';
 
 import { LoginService } from './login.service';
-import { LoginDto } from './dto/create-login.dto';
+import { EmailLoginDto } from './dto/login.dto';
 
 @Controller('login')
-@ApiTags('LOGIN')
+@ApiTags('Login')
 export class LoginController {
   constructor(private readonly loginService: LoginService) {}
 
   @Post()
-  @ApiOperation({ summary: '靓仔啊' })
+  @ApiOperation({ summary: '邮箱验证码登录' })
   @ApiResponse({
     status: 200,
     description: 'Success',
-    type: LoginDto
+    type: EmailLoginDto
   })
-  @ApiBody({ description: 'User payload', type: LoginDto, required: true })
-  create(@Body() loginDto: LoginDto) {
-    return this.loginService.login(loginDto);
+  @ApiBody({ description: 'User payload', type: EmailLoginDto, required: true })
+  emailLogin(@Body() loginDto: EmailLoginDto) {
+    return this.loginService.emailLogin(loginDto);
   }
 
   @Get('captcha')

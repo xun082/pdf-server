@@ -5,7 +5,7 @@ import { ConfigService } from '@nestjs/config';
 import { InjectModel } from '@nestjs/mongoose';
 import { Model } from 'mongoose';
 
-import { User, UsersDocument } from '../user/schema/user.schema';
+import { User, UserDocument } from '../user/schema/user.schema';
 
 import { jwtConstants } from '@/utils';
 
@@ -13,7 +13,7 @@ import { jwtConstants } from '@/utils';
 export class JwtStrategy extends PassportStrategy(Strategy) {
   constructor(
     protected configService: ConfigService,
-    @InjectModel(User.name) private userModel: Model<UsersDocument>
+    @InjectModel(User.name) private userModel: Model<UserDocument>
   ) {
     super({
       jwtFromRequest: ExtractJwt.fromAuthHeaderAsBearerToken(),

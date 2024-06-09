@@ -59,7 +59,7 @@ export class RedisService implements OnModuleDestroy {
     try {
       const data = await this.redisClient.get(key);
       if (data) {
-        return JSON.parse(data);
+        return data;
       } else {
         return null;
       }
